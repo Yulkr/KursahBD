@@ -18,7 +18,7 @@ public class Actor implements Serializable {
     private String first_name;
     @Column(name = "last_name")
     private String last_name;
-    @Column(name = "birtday")
+    @Column(name = "birthday")
     private Date birthday;
 
     @ManyToMany

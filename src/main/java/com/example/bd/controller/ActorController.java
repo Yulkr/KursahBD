@@ -14,7 +14,11 @@ public class ActorController {
 
 
     @PostMapping("/actors")
-    public void create(@PathVariable long id, @RequestBody Actor actor) {
+    //public void create(@PathVariable long id, @RequestBody Actor actor) {
+    public void create(@RequestBody Actor actor) {
+        actorRepo.save(actor);
+        ResponseEntity.ok().build();
+
 
     }
 

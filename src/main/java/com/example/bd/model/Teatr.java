@@ -21,7 +21,7 @@ public class Teatr implements Serializable {
     private Integer cost;
 
 
-    @OneToMany(mappedBy = "teatrs",
+    @OneToMany(mappedBy = "teatr",
               fetch = FetchType.EAGER)
     public Set<Raspisanie> raspisanies;
 

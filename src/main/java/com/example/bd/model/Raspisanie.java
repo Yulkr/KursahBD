@@ -20,7 +20,8 @@ public class Raspisanie implements Serializable {
             cascade=CascadeType.ALL)
     @JoinColumn (name="teatr_id", nullable = false)
     //private Teatr teatrs;
-    private Set<Teatr> teatrs;
+    private Teatr teatr;
+    //private Set<Teatr> teatrs;
 
 
 
@@ -56,10 +57,28 @@ public class Raspisanie implements Serializable {
                 '}';
     }
 
+/*
     public Set<Teatr> getTeatr() {
         return teatrs;
     }
+
+ */
+
+    public Teatr getTeatr() {
+        return teatr;
+    }
+
+
+
+    public void setTeatr(Teatr teatr) {
+        this.teatr = teatr;
+    }
+
+
+/*
     private void setTeatrs(Set<Teatr> teatrs){
         this.teatrs = teatrs;
     }
+
+ */
 }

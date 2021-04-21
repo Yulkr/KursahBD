@@ -20,7 +20,7 @@ public class TeatrController {
         teatrRepo.save(teatr);
         ResponseEntity.ok().build();
     }
-    @PutMapping("/teatr/{id}")
+    @PutMapping("/teatrs/{id}")
     public ResponseEntity<Teatr> update(@PathVariable long id, @RequestBody Teatr upTeatr) {
         Teatr user = teatrRepo.findById(id).orElse(null);
         if (user != null) {
@@ -32,7 +32,7 @@ public class TeatrController {
         }
     }
 
-    @DeleteMapping("/teatr/{id}")
+    @DeleteMapping("/teatrs/{id}")
     public void delete(@PathVariable long id) {
         Teatr teatr = teatrRepo.findById(id).orElse(null);
         if (teatr != null) {
