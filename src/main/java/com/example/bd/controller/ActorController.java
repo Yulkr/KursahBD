@@ -4,6 +4,7 @@ import com.example.bd.model.Actor;
 import com.example.bd.model.Teatr;
 import com.example.bd.repo.ActorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,24 @@ public class ActorController {
         return actor != null
                 ? new ResponseEntity<>(actor, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    @PutMapping(value = "/actors/{id}")
+    public Actor update(@PathVariable(name = "id") Long actorId, @RequestBody Actor actorReq) {
+        return actorRepo.findById(actorId).map(
+                actor -> {
+                    actor = actorReq;
+                    return actorRepo.save(actor);
+                }
+        ).orElseThrow(() -> new ResourceNotFoundException("Person not found with id" + actorId));
+    }
+
+    @DeleteMapping(value = "/actors/{id}")
+    public ResponseEntity<?> delete(@PathVariable(name = "id") Long actorId) {
+        return actorRepo.findById(actorId)
+                .map(actor -> {
+                    actorRepo.delete(actor);
+                    return ResponseEntity.ok().build();
+                }).orElseThrow(() -> new ResourceNotFoundException("Person not found with id" + actorId));
     }
 
 
