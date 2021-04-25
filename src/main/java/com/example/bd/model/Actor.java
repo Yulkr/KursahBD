@@ -14,10 +14,10 @@ public class Actor implements Serializable {
     @Id
     @Column(name = "id")
     private long id;
-    @Column(name = "first_nameA")
-    private String first_nameA;
-    @Column(name = "last_nameA")
-    private String last_nameA;
+    @Column(name = "first_NameA")
+    private String first_NameA;
+    @Column(name = "last_NameA")
+    private String last_NameA;
     @Column(name = "birthdayA")
     private String birthdayA;
 
@@ -31,10 +31,10 @@ public class Actor implements Serializable {
         super();
     }
 
-    public Actor(long id, String first_nameA, String last_NameA, String birthdayA) {
+    public Actor(long id, String first_NameA, String last_NameA, String birthdayA) {
         this.id = id;
-        this.first_nameA = first_nameA;
-        this.last_nameA = last_NameA;
+        this.first_NameA = first_NameA;
+        this.last_NameA = last_NameA;
         this.birthdayA = birthdayA;
     }
 
@@ -46,20 +46,20 @@ public class Actor implements Serializable {
         this.id = id;
     }
 
-    public String getFirst_nameA() {
-        return first_nameA;
+    public String getFirst_NameA() {
+        return first_NameA;
     }
 
-    public void setFirst_nameA(String first_nameA) {
-        this.first_nameA = first_nameA;
+    public void setFirst_NameA(String first_NameA) {
+        this.first_NameA = first_NameA;
     }
 
-    public String getLast_nameA() {
-        return last_nameA;
+    public String getLast_NameA() {
+        return last_NameA;
     }
 
-    public void setLast_nameA(String last_nameA) {
-        this.last_nameA = last_nameA;
+    public void setLast_NameA(String last_NameA) {
+        this.last_NameA = last_NameA;
     }
 
     public String getBirthdayA() {
@@ -74,8 +74,8 @@ public class Actor implements Serializable {
     public String toString() {
         return "Actor{" +
                 "id=" + id +
-                ", first_nameA='" + first_nameA + '\'' +
-                ", last_nameA='" + last_nameA + '\'' +
+                ", first_NameA='" + first_NameA + '\'' +
+                ", last_NameA='" + last_NameA + '\'' +
                 ", birthdayA='" + birthdayA + '\'' +
                 '}';
     }
