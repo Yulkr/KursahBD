@@ -15,12 +15,18 @@ import java.util.List;
 public class ActorController {
     @Autowired
     private ActorRepo actorRepo;
-
+/*
     @PostMapping("/actors")
     //public void create(@PathVariable long id, @RequestBody Actor actor) {
     public void create(@RequestBody Actor actor) {
         actorRepo.save(actor);
         ResponseEntity.ok().build();
+    }
+
+ */
+    @PostMapping(value = "/actors")
+    public Actor create(@RequestBody Actor actor) {
+        return actorRepo.save(actor);
     }
 
     @GetMapping(value = "/actors")

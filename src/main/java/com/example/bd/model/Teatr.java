@@ -1,5 +1,7 @@
 package com.example.bd.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -20,11 +22,12 @@ public class Teatr implements Serializable {
     @Column(name="cost")
     private Integer cost;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "teatr",
               fetch = FetchType.EAGER)
     public Set<Raspisanie> raspisanies;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable (name="teatrs_actors",
             joinColumns=@JoinColumn (name="teatr_id"),
