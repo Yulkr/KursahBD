@@ -1,5 +1,6 @@
 package com.example.bd.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.relational.core.sql.In;
 
 import javax.persistence.*;
@@ -21,6 +22,8 @@ public class Actor implements Serializable {
     @Column(name = "birthdayA")
     private String birthdayA;
 
+    //
+    @JsonIgnore
     @ManyToMany
     @JoinTable (name="teatrs_actors",
             joinColumns=@JoinColumn (name="actors_id"),
