@@ -24,6 +24,9 @@ public class ActorController {
     }
 
  */
+    public ActorController(ActorRepo actorRepo) {
+        this.actorRepo = actorRepo;
+    }
 
 
     @PostMapping(value = "/actors")

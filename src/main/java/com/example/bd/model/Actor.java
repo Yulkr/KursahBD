@@ -13,6 +13,7 @@ import java.util.Set;
 @Table(name = "actors")
 public class Actor implements Serializable {
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     @Column(name = "first_NameA")
@@ -23,7 +24,7 @@ public class Actor implements Serializable {
     private String birthdayA;
 
     //
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToMany
     @JoinTable (name="teatrs_actors",
             joinColumns=@JoinColumn (name="actors_id"),
