@@ -1,5 +1,7 @@
 package com.example.bd.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -16,6 +18,7 @@ public class Raspisanie implements Serializable {
     @Column(name = "datatime")
     private Date datatime;
 
+    @JsonIgnore
     @ManyToOne (optional = false,
             cascade=CascadeType.ALL)
     @JoinColumn (name="teatr_id", nullable = false)
