@@ -49,6 +49,7 @@ public class RaspisanieController {
 
     }
     @GetMapping("teatrs/{teatrId}/raspisanies/{raspisanieId}")
+
     public ResponseEntity<?> read(@PathVariable long teatrId,
                                          @PathVariable long raspisanieId) {
         Raspisanie  raspisanie = raspisanieRepo.findByTeatrIdAndId(teatrId, raspisanieId);

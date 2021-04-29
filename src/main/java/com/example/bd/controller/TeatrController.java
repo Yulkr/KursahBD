@@ -33,6 +33,7 @@ public class TeatrController {
     }
 
     @GetMapping(value = "/teatrs/{id}")
+
     public ResponseEntity<Teatr> read(@PathVariable(name = "id") Long id) {
         Teatr teatr = teatrRepo.findById(id).orElse(null);
 
