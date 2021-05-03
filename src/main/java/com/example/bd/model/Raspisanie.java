@@ -5,9 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Set;
 
 @Entity
+
 @Table(name="raspisanies")
 public class Raspisanie implements Serializable {
     @Id
@@ -15,8 +18,10 @@ public class Raspisanie implements Serializable {
     //private Set<Teatr> teatrs;
     @Column(name = "id")
     private long id;
-    @Column(name = "datatime")
-    private Date datatime;
+    @Column(name = "data")
+    private String data;
+    @Column(name = "time")
+    private LocalTime time;
 
     @JsonIgnore
     @ManyToOne (optional = false,
@@ -28,9 +33,10 @@ public class Raspisanie implements Serializable {
 
 
 
-    public Raspisanie(long id, Date datatime) {
+    public Raspisanie(long id, String data, LocalTime time) {
         this.id = id;
-        this.datatime = datatime;
+        this.data = data;
+        this.time = time;
     }
 
     public Raspisanie(){}
@@ -44,23 +50,32 @@ public class Raspisanie implements Serializable {
         this.id = id;
     }
 
-    public Date getDatatime() {
-        return datatime;
+    public String getData() {
+        return data;
     }
 
-    public void setDatatime(Date datatime) {
-        this.datatime = datatime;
+    public void setData(String  data) {
+        this.data = data;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 
     @Override
     public String toString() {
         return "Raspisanie{" +
-                ", id=" + id +
-                ", datatime=" + datatime +
+                "id=" + id +
+                ", data=" + data +
+                ", time=" + time +
+                ", teatr=" + teatr +
                 '}';
     }
-
-/*
+    /*
     public Set<Teatr> getTeatr() {
         return teatrs;
     }
