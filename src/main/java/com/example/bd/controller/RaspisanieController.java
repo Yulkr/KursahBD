@@ -15,16 +15,28 @@ import java.util.List;
 import java.util.Set;
 @RestController
 public class RaspisanieController {
+    /**
+     * Репозиторий для манипулирования данными в таблице расписания
+     */
     @Autowired
     private RaspisanieRepo raspisanieRepo;
+    /**
+     * Репозиторий для манипулирования данными в таблице театра
+     */
     @Autowired
     private TeatrRepo teatrRepo;
-
+    /**
+     * Метод обработки пост-запросов на получение расписания мероприятий театра
+     *
+     */
     @PostMapping(value = "/raspisanies")
     public Raspisanie create(@RequestBody Raspisanie raspisanie) {
         return raspisanieRepo.save(raspisanie);
     }
-
+    /**
+     * Метод обработки гет-запросов на отправление расписания мероприятий
+     *
+     */
     @GetMapping(value = "/raspisanies")
     public ResponseEntity<List<Raspisanie>> read() {
         List<Raspisanie> raspisanie = raspisanieRepo.findAll();
@@ -32,7 +44,10 @@ public class RaspisanieController {
                 ? new ResponseEntity<>(raspisanie, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
+    /**
+     * Метод обработки гет-запросов на отправление расписания мероприятий театра по id
+     *
+     */
     @GetMapping(value = "/raspisanies/{id}")
 
     public ResponseEntity<Raspisanie> read(@PathVariable(name = "id") Long id) {
