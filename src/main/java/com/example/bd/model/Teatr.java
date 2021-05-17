@@ -182,6 +182,4 @@ public class Teatr implements Serializable {
         this.raspisanies = raspisanies;
     }
 
-    //public List<Object> getTeators() {
-    //}
 }

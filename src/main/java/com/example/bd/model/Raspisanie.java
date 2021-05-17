@@ -20,7 +20,6 @@ public class Raspisanie implements Serializable {
      */
     @Id
     @GeneratedValue (strategy= GenerationType.IDENTITY)
-    //private Set<Teatr> teatrs;
     @Column(name = "id")
     private long id;
     /**
@@ -40,9 +39,8 @@ public class Raspisanie implements Serializable {
     @ManyToOne (optional = false,
             cascade=CascadeType.ALL)
     @JoinColumn (name="teatr_id", nullable = false)
-    //private Teatr teatrs;
     private Teatr teatr;
-    //private Set<Teatr> teatrs;
+
     /**
      * Конструктор для модели
      *
@@ -121,28 +119,11 @@ public class Raspisanie implements Serializable {
                 ", teatr=" + teatr +
                 '}';
     }
-    /*
-    public Set<Teatr> getTeatr() {
-        return teatrs;
-    }
-
- */
-
     public Teatr getTeatr() {
         return teatr;
     }
-
-
-
     public void setTeatr(Teatr teatr) {
         this.teatr = teatr;
     }
 
-
-/*
-    private void setTeatrs(Set<Teatr> teatrs){
-        this.teatrs = teatrs;
-    }
-
- */
 }
