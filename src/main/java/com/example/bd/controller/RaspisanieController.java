@@ -14,6 +14,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @RestController
+/**
+ * Контроллер для обработки запросов расписания переводов манипулирующих команд
+ *
+ */
 public class RaspisanieController {
     /**
      * Репозиторий для манипулирования данными в таблице расписания
