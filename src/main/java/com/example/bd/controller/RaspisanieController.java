@@ -55,7 +55,6 @@ public class RaspisanieController {
     @GetMapping(value = "/raspisanies/{teatr_id}")
 
     public ResponseEntity<List<Raspisanie>> read(@PathVariable(name = "teatr_id") Long id) {
-//        Raspisanie raspisanie = raspisanieRepo.findById(id).orElse(null);
         List<Raspisanie> raspisanies = raspisanieRepo.findAllByTeatrId(id);
 
         return raspisanies != null
