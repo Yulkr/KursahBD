@@ -39,34 +39,6 @@ public class TeatrController {
     public TeatrController(TeatrService teatrService){
         this.teatrService = teatrService;
     }
-
-/* этот пост рабочий
-    @PostMapping(value = "/teatrs")
-    public Teatr create(@RequestBody Teatr teatr) {
-        return teatrRepo.save(teatr);
-    }
-
- */
-/* это рабочии 2 метода
-    @GetMapping(value = "/teatrs")
-    public ResponseEntity<List<Teatr>> read() {
-        List<Teatr> teatr = teatrRepo.findAll();
-        return !teatr.isEmpty()
-                ? new ResponseEntity<>(teatr, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @GetMapping(value = "/teatrs/{id}")
-
-    public ResponseEntity<Teatr> read(@PathVariable(name = "id") Long id) {
-        Teatr teatr = teatrRepo.findById(id).orElse(null);
-
-        return teatr != null
-                ? new ResponseEntity<>(teatr, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
- */
     /**
      * Способ обработки пост-запросов на получение мероприятий театра
      *
@@ -125,18 +97,6 @@ public class TeatrController {
         }).orElseThrow(() -> new IllegalArgumentException());
 
     }
-/* рабочий пут
-    @PutMapping(value = "/teatrs/{id}")
-    public Teatr update(@PathVariable(name = "id") Long teatrId, @RequestBody Teatr teatrReq) {
-        return teatrRepo.findById(teatrId).map(
-                teatr -> {
-                    teatr = teatrReq;
-                    return teatrRepo.save(teatr);
-                }
-        ).orElseThrow(() -> new ResourceNotFoundException("Person not found with id" + teatrId));
-    }
-
- */
     /**
      * Метод обработки delete-запросов на удаление мероприятий из таблицы teatrs
      *
@@ -149,46 +109,4 @@ public class TeatrController {
                     return ResponseEntity.ok().build();
                 }).orElseThrow(() -> new ResourceNotFoundException("Person not found with id" + teatrId));
     }
-
-/*
-    @PostMapping("/teatrs")
-    public void create(@RequestBody Teatr teatr) {
-        teatrRepo.save(teatr);
-        ResponseEntity.ok().build();
-    }
-    @PutMapping("/teatrs/{id}")
-    public ResponseEntity<Teatr> update(@PathVariable long id, @RequestBody Teatr upTeatr) {
-        Teatr user = teatrRepo.findById(id).orElse(null);
-        if (user != null) {
-            upTeatr.setId(id);
-            teatrRepo.save(upTeatr);
-            return new ResponseEntity<>(upTeatr, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @DeleteMapping("/teatrs/{id}")
-    public void delete(@PathVariable long id) {
-        Teatr teatr = teatrRepo.findById(id).orElse(null);
-        if (teatr != null) {
-            teatrRepo.delete(teatr);
-            ResponseEntity.ok().build();
-        } else {
-            ResponseEntity.notFound().build();
-        }
-    }
-    @GetMapping("/teatrs/{id}")
-    public ResponseEntity<Teatr> read(@PathVariable long id) {
-        Teatr teatr = teatrRepo.findById(id).orElse(null);
-        return teatr != null
-                ? new ResponseEntity<>(teatr, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
- */
-
-
-
-
 }
