@@ -52,13 +52,14 @@ public class RaspisanieController {
      * Метод обработки гет-запросов на отправление расписания мероприятий театра по id
      *
      */
-    @GetMapping(value = "/raspisanies/{id}")
+    @GetMapping(value = "/raspisanies/{teatr_id}")
 
-    public ResponseEntity<Raspisanie> read(@PathVariable(name = "id") Long id) {
-        Raspisanie raspisanie = raspisanieRepo.findById(id).orElse(null);
+    public ResponseEntity<List<Raspisanie>> read(@PathVariable(name = "teatr_id") Long id) {
+//        Raspisanie raspisanie = raspisanieRepo.findById(id).orElse(null);
+        List<Raspisanie> raspisanies = raspisanieRepo.findAllByTeatrId(id);
 
-        return raspisanie != null
-                ? new ResponseEntity<>(raspisanie, HttpStatus.OK)
+        return raspisanies != null
+                ? new ResponseEntity<>(raspisanies, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
