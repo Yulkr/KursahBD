@@ -1,6 +1,7 @@
 package com.example.bd.repo;
 
 import com.example.bd.model.Raspisanie;
+import com.example.bd.model.Teatr;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public interface RaspisanieRepo extends JpaRepository<Raspisanie, Long> {
      */
     Raspisanie findByTeatrIdAndId(long teatrId, long raspisanieId);
     List<Raspisanie> findAllByTeatrId(long teatrId);
+    //Raspisanie findTeatrById(long id);
 
     //boolean existsByUserIdAndId(long userId, long id);
 

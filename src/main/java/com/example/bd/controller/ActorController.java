@@ -83,4 +83,5 @@ public class ActorController {
                     return ResponseEntity.ok().build();
                 }).orElseThrow(() -> new ResourceNotFoundException("Person not found with id" + actorId));
     }
+
 }
