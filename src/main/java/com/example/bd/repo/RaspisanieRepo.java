@@ -18,7 +18,7 @@ public interface RaspisanieRepo extends JpaRepository<Raspisanie, Long> {
      */
     Raspisanie findByTeatrIdAndId(long teatrId, long raspisanieId);
     List<Raspisanie> findAllByTeatrId(long teatrId);
-    //Raspisanie findTeatrById(long id);
+    Raspisanie findTeatrById(long id);
 
     //boolean existsByUserIdAndId(long userId, long id);
 

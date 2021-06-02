@@ -19,5 +19,5 @@ public interface TeatrRepo extends JpaRepository<Teatr, Long> {
      * @param genre  мероприятия
      */
     List<Teatr> findByGenre(String genre);
-    //Teatr findTeatrById(long id);
+    Teatr findTeatrById(long id);
 }
