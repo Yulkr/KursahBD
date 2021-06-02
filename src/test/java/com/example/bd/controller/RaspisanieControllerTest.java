@@ -53,6 +53,9 @@ public class RaspisanieControllerTest {
             e.printStackTrace();
         }
     }
+    /***
+     * тестирование GET-запрос на получение расписания
+     */
     @Test
     public void getRaspisanies() {
         try {

@@ -45,7 +45,6 @@ public class ActorControllerTest {
     @Autowired
     public MockMvc mvc;
 
-
     /**
      * Проверка получения актера по id
      */
@@ -90,11 +89,6 @@ public class ActorControllerTest {
             e.printStackTrace();
         }
     }
-
-
-
-
-
 
     /**
      * Проверка post-запроса на актера
@@ -161,60 +155,6 @@ public class ActorControllerTest {
     /***
      * тестирование PUT-запрос на обновление клиента
      */
-/*
-    @Test
-    public void UpdateActor(){
-        try {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("id",21);
-            jsonObject.put("first_NameA","aa");
-            jsonObject.put("last_NameA","aa");
-            jsonObject.put("birthdayA",LocalDate.of(2009,12,12));
-            this.mvc.perform(MockMvcRequestBuilders.put("http://localhost:8080/actors/id")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(jsonObject.toString())
-                    .accept(MediaType.APPLICATION_JSON))
-                    .andDo(MockMvcResultHandlers.print())
-                    .andExpect(status().isOk())
-                    .andReturn();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
- */
-    /*
-    @Test
-    public void findAll() {
-        ArrayList<Actor> expected = new ArrayList<>();
-
-        Actor actor = new Actor();
-        expected.add(actor);
-
-        Mockito.when(service.findAll()).thenReturn(expected);
-        Assert.assertEquals(service.findAll(), expected);
-    }
-
-     */
-
-/*
-    @Test
-    public void findById() {
-        Optional<Actor> expected = Optional.of(new Actor());
-
-        Mockito.doReturn(expected)
-                .when(actorRepo)
-                .findById(1L);
-
-        Assert.assertEquals(expected, actorRepo.findById(1L));
-    }
-
- */
-
-
-
-
-
 
 }
 
